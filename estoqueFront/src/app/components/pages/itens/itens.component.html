@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+
+    <div class="col-11">
+        
+        <div>
+            <h1 id="todos_departamento">Todos Itens</h1>
+        </div>
+
+        <!--Busca-->
+        <div class="row mb-3" >
+            <form [formGroup]="formSearch" (ngSubmit)="submit()" class="col-5" role="search" style="width: 250px;">
+                <div class="d-flex border rounded">
+                    <input class="border-0 m-2 col" formControlName="search" type="search" placeholder="Busca" aria-label="Search">
+                    <button class="border-0 col-1 bg-white rounded" type="submit">
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                    </button>
+                    
+                </div>
+            </form>
+
+        </div>
+
+        <!-- Tabela -->
+        <div class="row itens">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z3">
+
+                <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef class="">
+                        <span>Nome</span>
+                        <!--<div>
+                            <button>/\</button> 
+                            <button>\/</button> 
+                        </div>-->
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.tipo.nome}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="codigoBarra">
+                    <th mat-header-cell *matHeaderCellDef> Codigo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.codigoBarra}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="departamento">
+                    <th mat-header-cell *matHeaderCellDef> Departamento </th>
+                    <td mat-cell *matCellDef="let element"> {{element.tipo.departamento.nome}} </td>
+                </ng-container>
+
+                <!--<ng-container matColumnDef="tipo">
+                    <th mat-header-cell *matHeaderCellDef> Tipo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.tipo.nome}} </td>
+                </ng-container>-->
+
+                <!--status-->
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    font-family: var(--fonte_titulo);
+    font-size: 2em;
+    padding: 10px;
+}
+
+/*tabela*/
+td{
+    font-weight: 500;
+}
+th{
+    color: blueviolet;
+    font-size: 1em;
+}
+
+tr:nth-child(even){
+    background-color: rgba(127, 255, 212, 0.575);
+}
+
+/*botões*/
+button{
+    font-size: 1.2em;
+}
+
+span{
+    font-size: 1.2em;
+}
+
+
+
+
+

@@ -1,0 +1,37 @@
+<div class="class">
+    <div class="d-flex">
+        
+        <!--botoes lado direito-->
+        <div class="container-fluid">
+            <div class="d-flex justify-content-end">
+                <!--Cadastrar-->
+                <button type="button" class="btn btn-light ms-2 d-flex justify-content-center align-items-center" (click)="openCreateItemDialog()">
+                    <span class="material-symbols-outlined">
+                        add_ad
+                    </span>
+                </button>
+
+                
+                <button type="button" class="btn btn-light ms-2 d-flex justify-content-center align-items-center" (click)="toggleMenu()" id="add">
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                </button>
+        </div>
+
+        <div id="adds" [ngClass]="{'active': menuOpen}">
+            <button type="button" class="btn btn-light ms-2 d-flex justify-content-center align-items-center" (click)="openCreateDepartamentoDialog()" id="departamento">
+                <span class="material-symbols-outlined">
+                    folder
+                </span>
+            </button>
+        
+            <button type="button" class="btn btn-light ms-2 d-flex justify-content-center align-items-center" (click)="openCreateTipoItemDialog()" id="tipoitem">
+                <span class="material-symbols-outlined">
+                    sell
+                </span>
+            </button> 
+        </div>
+
+    </div>
+</div>

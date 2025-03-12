@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+
+    <div class="col-11">
+        <div>
+            <h1 id="produtos" class="text-center">Produtos</h1>
+        </div>
+
+        <!--Busca-->
+        <div class="row mb-3">
+            <form [formGroup]="formSearch" (ngSubmit)="submit()" class="col-5" role="search" style="width: 250px;">
+                <div class="d-flex border rounded">
+                    <input class="border-0 m-2 col" formControlName="search" type="search" placeholder="Busca" aria-label="Search">
+                    <button class="border-0 col-1 bg-white rounded" type="submit">
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                    </button>
+                    
+                </div>
+            </form>
+
+            <!--Filtros-->
+            <button type="button" class="btn btn-light ms-2 col-1" id="filterButton" (click)="toggleSidebar()" style="height: 40px; width: 40px;">
+                <span class="material-symbols-outlined">tune</span>
+            </button>
+
+            
+            <div class="sidebar col-1" [ngClass]="{'active': sidebarOpen}">
+                <h2>Ordenar por:</h2>
+                <ul class="pb-1">
+                    <li><input type="radio" id="filter1" name="opdepartamento" checked> Sem filtro</li>
+                    <li><input type="radio" id="filter1" name="opdepartamento"> Menor preço</li>
+                    <li><input type="radio" id="filter2" name="opdepartamento"> Maior preço</li>
+                    <li><input type="radio" id="filter2" name="opdepartamento"> Maior quantidade</li>
+                    <li><input type="radio" id="filter2" name="opdepartamento"> Menor quantidade</li>
+                </ul>
+                <button type="button" class="btn btn-light p-1" (click)="applyFilters()">Aplicar</button>
+            </div>
+
+             <!-- Tabela -->
+            <div class="row itens mt-3">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z3">
+
+                    <ng-container matColumnDef="nome">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <span>Nome</span>
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.tipo.nome}} </td>
+                    </ng-container>
+
+                    <!--<ng-container matColumnDef="departamento">
+                        <th mat-header-cell *matHeaderCellDef> Departamento </th>
+                        <td mat-cell *matCellDef="let element"> {{element.departamento.nome}} </td>
+                    </ng-container>-->
+
+                    <ng-container matColumnDef="preco">
+                        <th mat-header-cell *matHeaderCellDef> Preço </th>
+                        <td mat-cell *matCellDef="let element"> {{element.tipo.preco}} </td>
+                    </ng-container>
+
+                    <!--quanntidade-->
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+    
+</div>
