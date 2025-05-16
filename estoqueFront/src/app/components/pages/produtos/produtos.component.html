@@ -29,8 +29,6 @@
                 <h2>Ordenar por:</h2>
                 <ul class="pb-1">
                     <li><input type="radio" id="filter1" name="opdepartamento" checked> Sem filtro</li>
-                    <li><input type="radio" id="filter1" name="opdepartamento"> Menor preço</li>
-                    <li><input type="radio" id="filter2" name="opdepartamento"> Maior preço</li>
                     <li><input type="radio" id="filter2" name="opdepartamento"> Maior quantidade</li>
                     <li><input type="radio" id="filter2" name="opdepartamento"> Menor quantidade</li>
                 </ul>
@@ -47,11 +45,6 @@
                         </th>
                         <td mat-cell *matCellDef="let element"> {{element.tipo.nome}} </td>
                     </ng-container>
-
-                    <!--<ng-container matColumnDef="departamento">
-                        <th mat-header-cell *matHeaderCellDef> Departamento </th>
-                        <td mat-cell *matCellDef="let element"> {{element.departamento.nome}} </td>
-                    </ng-container>-->
 
                     <ng-container matColumnDef="preco">
                         <th mat-header-cell *matHeaderCellDef> Preço </th>

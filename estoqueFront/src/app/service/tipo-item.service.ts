@@ -17,4 +17,11 @@ export class TipoItemService{
   async save(tipoItemDto: TipoItemDto) {
     await axios.post(environment.api_url + 'tipo-item', tipoItemDto);
   }
+
+  async filterSearch(search: String): Promise<TipoItemDto[]> {
+    const reponse = await axios.get(environment.api_url + 'tipo-item/filter-search/' + search);
+    return reponse.data;
+  }
+
+  
 }

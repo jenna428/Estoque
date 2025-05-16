@@ -29,10 +29,9 @@ export class FornecedorService{
         return fornecedoresDto;
     }
 
-    /*async save(fornecedorDto: FornecedorDto): Promise<FornecedorDto[]>{
+     async save(fornecedorDto: FornecedorDto): Promise<FornecedorDto> {
         const fornecedor = await this.fornecedorRepository.save(FornecedorMapper.toEntity(fornecedorDto));
 
-        return FornecedorMapper.toDto(fornecedor);
-    }*/
-
+        return FornecedorMapper.toDto(fornecedor)
+    }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { FornecedorDto } from "src/dto/fornecedor.dto";
 import { FornecedorService } from "src/service/fornecedor.service";
 
@@ -21,6 +21,13 @@ export class FornecedorController{
         const fornecedores = await this.fornecedorService.findAll();
 
         return fornecedores;
+    }
+
+    @Post('/')
+    async save(@Body() fornecedorDto: FornecedorDto): Promise<FornecedorDto>{
+        const fornecedor = await this.fornecedorService.save(fornecedorDto);
+
+        return fornecedor;
     }
 
 }

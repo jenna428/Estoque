@@ -44,7 +44,7 @@ export class NavbarFiltersComponent implements OnInit {
   openCreateTipoItemDialog(){
     this.dialog.open(CreateTipoitemFormComponent, {
       width: '400px',
-      height: '250px',
+      height: '700px',
     })
   } 
 

@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Up
 
 @Entity('departamento')
 export class DepartamentoEntity {
-    @PrimaryGeneratedColumn() //chave primaria
+    @PrimaryGeneratedColumn()
     id?: Number;
 
     @Column({length: 50, nullable: true})

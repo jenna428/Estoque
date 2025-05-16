@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Req } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Query, Req } from "@nestjs/common";
 import { Request } from "express";
 import { ItemDto } from "src/dto/item.dto";
 import { ItemService } from "src/service/item.service";
@@ -17,11 +17,27 @@ export class ItemController {
     }
 
     @Get('/')
-    async filterSearch(@Req() req: Request): Promise<ItemDto[]> {
-
+    async findAll(): Promise<ItemDto[]> {
         const itens = await this.itemService.findAll();
 
         return itens;
+    }
+
+    @Get('/teste/:search')
+    async test(@Param('search') search: string): Promise<ItemDto[]> {
+        //const itens = await this.itemService.findAll();
+        //const itens = await this.itemService.filterSearch(req.params.search);
+        const itens = await this.itemService.filterSearch(search);
+
+        return itens;
+    }
+
+    @Get('/filter-search')
+    async filterSearch(): Promise<ItemDto[]> {
+        //console.log('teste', req);
+        //const itens = await this.itemService.filterSearch(req.params.search);
+ 
+        return [];
     }
 
     @Post('/')

@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { FuncionarioDto } from "src/dto/funcionario.dto";
 import { FuncionarioService } from "src/service/funcionario.service";
 
@@ -21,5 +21,12 @@ export class FuncionaioController {
         const funcionarios = await this.funcionarioService.findAll();
 
         return funcionarios;
+    }
+
+    @Post('/')
+    async save(@Body() funcionarioDto: FuncionarioDto): Promise<FuncionarioDto>{
+        const funcionario = await this.funcionarioService.save(funcionarioDto);
+
+        return funcionario;
     }
 }

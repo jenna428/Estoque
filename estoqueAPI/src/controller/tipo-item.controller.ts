@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { TipoItemDto } from 'src/dto/tipo-item.dto';
 import { TipoItemService } from 'src/service/tipo-item.service';
 
@@ -16,10 +16,18 @@ export class TipoItemController {
         return tipo;
     }
 
+    @Get('/filter-search/:search')
+    async test(@Param('search') search: string): Promise<TipoItemDto[]> {
+        const itens = await this.tipoItemService.filterSearch(search);
+
+        return itens;
+    }
+
     @Post('/')
     async save(@Body() TipoItemDto: TipoItemDto): Promise<TipoItemDto> {
         const tipo = await this.tipoItemService.save(TipoItemDto);
 
         return tipo;
     }
+
 }

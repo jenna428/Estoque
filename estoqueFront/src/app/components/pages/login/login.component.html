@@ -1,5 +1,28 @@
-<div class="d-flex justify-content-center">
-    <div class="col-11">
+<div class="form d-flex justify-content-center align-items-center">
+    <div class="d-inline">
+        <h1 class="d-flex justify-content-center mb-5">Login</h1>
+        <form [formGroup] ="form" (ngSubmit)="submit()">
+            <div>
+                <mat-form-field appearance="fill" style="width: 250px;">
+                    <mat-label>Usuário</mat-label>
+                    <input type="text" formControlName="user" matInput>
+                </mat-form-field>
+            </div>
+            
+            <div>
+                <mat-form-field appearance="fill" style="width: 250px;">
+                    <mat-label>Senha</mat-label>
+                    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button mat-stroked-button type="submit">Entrar</button>
+            </div>
+        </form>
         
     </div>
 </div>
+

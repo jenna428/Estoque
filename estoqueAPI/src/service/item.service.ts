@@ -4,6 +4,7 @@ import { ItemDto } from "src/dto/item.dto";
 import { ItemEntity } from "src/entity/item.entity";
 import { ItemMapper } from "src/mapper/item.mapper";
 import { ItemRepository } from "src/respository/item.repository";
+import { FindManyOptions, Like } from "typeorm";
 
 @Injectable()
 export class ItemService {
@@ -21,15 +22,29 @@ export class ItemService {
         return ItemMapper.toDto(item); 
     }
 
-    async findAll(): Promise<ItemDto[]>{
-        const option = {relations: [ 'tipo']}
+    async filterSearch(search: String): Promise<ItemDto[]> {
+        const option: FindManyOptions = {
+            relations: [ 'tipo', 'tipo.fornecedor'],
+            where:
+            {
+                tipo: {
+                nome: search
+                }
+            }
+        }
         const itens = await this.itemRepository.find(option);
+        const itensDto: ItemDto[] = itens.map(ItemMapper.toDto);
 
-        /*const itensDto = [];
+        return itensDto; 
+    }
+    
+    //
+    
+    //
 
-        itens.forEach((item) => {
-           itensDto.push(ItemMapper.toDto(item));
-        });*/
+    async findAll(): Promise<ItemDto[]>{
+        const option: FindManyOptions = {relations: ['tipo']}
+        const itens = await this.itemRepository.find(option);
 
         const itensDto: ItemDto[] = itens.map(ItemMapper.toDto);
 

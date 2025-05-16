@@ -28,7 +28,9 @@ export class ProdutosComponent implements OnInit {
       })
     }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.dataSource = await this.itemService.findAll()
+    console.log('data:', this.dataSource);
   }
 
   /*filtros*/

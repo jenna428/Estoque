@@ -23,6 +23,11 @@ import { CreateDepartamentoFormComponent } from './components/create-departament
 import { CreateTipoitemFormComponent } from './components/create-tipoitem-form/create-tipoitem-form.component';
 import { ProdutosComponent } from './components/pages/produtos/produtos.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import {MatIconModule} from '@angular/material/icon';
+import { CreateFuncionarioFormComponent } from './components/create-funcionario-form/create-funcionario-form.component';
+import { CreateFornecedorFormComponent } from './components/create-fornecedor-form/create-fornecedor-form.component';
+import { FuncionariosComponent } from './components/pages/funcionarios/funcionarios.component';
+import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,11 @@ import { LoginComponent } from './components/pages/login/login.component';
     CreateDepartamentoFormComponent,
     CreateTipoitemFormComponent,
     ProdutosComponent,
-    LoginComponent
+    LoginComponent,
+    CreateFuncionarioFormComponent,
+    CreateFornecedorFormComponent,
+    FuncionariosComponent,
+    FornecedorComponent,
   ],
   imports: [
     MatDialogModule,
@@ -49,7 +58,8 @@ import { LoginComponent } from './components/pages/login/login.component';
     MatButtonModule,
     MatSelectModule,
     MatOptionModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

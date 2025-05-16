@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.form{
+    height: 70vh;
+}
+
+h1{
+    font-family: var(--fonte_titulo);
+    font-size: 3em;
+}

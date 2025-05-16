@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+h1, h2{
+    font-family: var(--fonte_titulo);
+}
+
+img{
+    background-color: rgb(220, 220, 223);
+    height: 150px;
+    width: 150px;
+}
+
+.tabforn{
+    width: 80vw;
+}
+
+.forn{
+    margin-left: 10vw;
+}

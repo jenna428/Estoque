@@ -29,4 +29,10 @@ export class FuncionarioService{
         return funcionariosDto;
     }
 
+    async save(funcionarioDto: FuncionarioDto): Promise<FuncionarioDto> {
+        const funcionario = await this.funcionarioRepository.save(FuncionarioMapper.toEntity(funcionarioDto));
+
+        return FuncionarioMapper.toDto(funcionario)
+    }
+
 }

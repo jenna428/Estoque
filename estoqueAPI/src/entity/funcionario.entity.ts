@@ -20,6 +20,6 @@ export class FuncionarioEntity{
     @Column({length: 50, nullable: true})
     email: String;
 
-    @CreateDateColumn({type: 'datetime'})
+    @CreateDateColumn({ type: 'datetime' })
     dataAdmissao?: Date;
 }

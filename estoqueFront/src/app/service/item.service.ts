@@ -15,10 +15,15 @@ export class ItemService {
   }
 
   async filterSearch(search: String): Promise<ItemDto[]> {
-    const reponse = await axios.get(environment.api_url + 'item', {params: this.searchParamsBuilder(search)});
+    const reponse = await axios.get(environment.api_url + 'item/teste/' + search);
     return reponse.data;
+
   }
 
+  async findAll(): Promise<ItemDto[]> {
+    const reponse = await axios.get(environment.api_url + 'item');
+    return reponse.data;
+  }
 
   private searchParamsBuilder(search: String) {
     const options = {

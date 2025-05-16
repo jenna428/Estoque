@@ -20,22 +20,18 @@ export class ItensComponent implements OnInit {
     private readonly fb: FormBuilder
   ) {
     this.formSearch = this.fb.group({
-      search: ['', [Validators.required]],
-      submit: ['']
+      search: ['']
     })
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.dataSource = await this.itemService.findAll();
   }
-
-  
 
   /*Busca */
   async submit() {
     const search = this.formSearch?.get('search')?.value;
     this.dataSource = await this.itemService.filterSearch(search);
-
-    console.log(this.dataSource);
   }
 
 }

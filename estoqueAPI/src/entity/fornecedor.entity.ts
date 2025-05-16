@@ -21,7 +21,5 @@ export class FornecedorEntity {
     email: String;
 
     @CreateDateColumn({type: 'datetime'})
-    dataCadastro?: Date;
-    // @OneToMany(type => ItemEntity, item => item.fornecedor)
-    // itens: ItemEntity[]
+    dataCadastro: Date;
 }

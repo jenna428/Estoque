@@ -1,10 +1,11 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { DepartamentoEntity } from "./departamento.entity";
+import { FornecedorEntity } from "./fornecedor.entity";
 
 
 @Entity('tipoItem')
 export class TipoItemEntity {
-    @PrimaryGeneratedColumn() //chave primaria
+    @PrimaryGeneratedColumn()
     id?: Number;
 
     @Column({length: 50, nullable: true})
@@ -21,5 +22,9 @@ export class TipoItemEntity {
 
     @Column({ nullable: true })
     preco: Number;
+
+    @ManyToOne(type => FornecedorEntity)
+    fornecedor: FornecedorEntity;
+
 }
 

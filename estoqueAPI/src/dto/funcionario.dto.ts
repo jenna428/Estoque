@@ -5,5 +5,5 @@ export interface FuncionarioDto{
     cep: Number;
     telefone: Number;
     email: String;
-    dataAdmissao: Date;
+    dataAdmissao: Date
 }
