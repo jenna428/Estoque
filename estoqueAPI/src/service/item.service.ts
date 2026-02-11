@@ -14,7 +14,7 @@ export class ItemService {
         private readonly itemRepository: ItemRepository
     ) {}
 
-    async findOneById(itemId: Number): Promise<ItemDto> {
+    async findOneById(itemId: number): Promise<ItemDto> {
         const item = await this.itemRepository.findOne({
             where: {id: itemId}
         })
@@ -22,15 +22,23 @@ export class ItemService {
         return ItemMapper.toDto(item); 
     }
 
+    async delete(itemdId: number){
+        await this.itemRepository.delete(itemdId);
+    }
+
     async filterSearch(search: String): Promise<ItemDto[]> {
         const option: FindManyOptions = {
-            relations: [ 'tipo', 'tipo.fornecedor'],
-            where:
-            {
-                tipo: {
-                nome: search
+            relations: [ 'tipo'],
+            where: [
+                {
+                    tipo: {
+                    nome: Like(`%${search}%`)
+                    }
+                },
+                {
+                    codigoBarra: Like(`${search}%`)
                 }
-            }
+            ]
         }
         const itens = await this.itemRepository.find(option);
         const itensDto: ItemDto[] = itens.map(ItemMapper.toDto);

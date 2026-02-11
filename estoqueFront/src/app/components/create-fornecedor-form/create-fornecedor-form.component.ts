@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { FornecedorDto } from 'src/app/dto/fornecedor.dto';
 import { FornecedorService } from 'src/app/service/fornecedor.service';
 
@@ -15,6 +15,7 @@ export class CreateFornecedorFormComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
     private readonly funcionarioService: FornecedorService,
+    private readonly dialogRef: MatDialogRef <CreateFornecedorFormComponent>
   ) {
     this.form = this.fb.group({
       nome: ['', [Validators.required, Validators.maxLength(50)]],
@@ -30,7 +31,7 @@ export class CreateFornecedorFormComponent implements OnInit {
   }
 
 
-  submit(){
+  async submit(){
     const funcionarioDto: FornecedorDto = {
       nome: this.form.get('nome')?.value,
       cnpj: this.form.get('nome')?.value,
@@ -39,7 +40,8 @@ export class CreateFornecedorFormComponent implements OnInit {
       email: this.form.get('nome')?.value,
     }
 
-    this.funcionarioService.save(funcionarioDto);
+    await this.funcionarioService.save(funcionarioDto);
+    this.dialogRef.close()
   }
 
 

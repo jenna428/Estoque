@@ -12,6 +12,9 @@ export class TipoItemMapper {
             id: tipoItemEntity?.id,
             departamento: DepartamentoMapper.toDto(tipoItemEntity?.departamento),
             preco: tipoItemEntity?.preco,
+            /*preco: tipoItemEntity?.preco !== null && tipoItemEntity?.preco !== undefined
+               ? parseFloat(tipoItemEntity.preco.toFixed(2))
+               : null,*/
             fornecedor: FornecedorMapper.toDto(tipoItemEntity?.fornecedor)
         }
         

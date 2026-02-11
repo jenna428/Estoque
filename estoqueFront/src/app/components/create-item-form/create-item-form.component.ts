@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DepartamentoDto } from 'src/app/dto/departamento.dto';
 import { ItemDto } from 'src/app/dto/item.dto';
 import { TipoItemDto } from 'src/app/dto/tipo-item.dto';
 import { ItemService } from 'src/app/service/item.service';
 import { TipoItemService } from 'src/app/service/tipo-item.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-item-form',
@@ -21,7 +22,8 @@ export class CreateItemFormComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
     private readonly itemService: ItemService,
-    private readonly tipoitemService: TipoItemService
+    private readonly tipoitemService: TipoItemService,
+    private readonly dialogRef: MatDialogRef <CreateItemFormComponent>
   ) {
     this.form = this.fb.group({
       codigo: ['', [Validators.required, Validators.maxLength(11)]],
@@ -41,7 +43,6 @@ export class CreateItemFormComponent implements OnInit {
     }
 
     await this.itemService.save(itemDto);
-    console.log(this.form.get('nome')?.value);
+    this.dialogRef.close()
   }
-
 }

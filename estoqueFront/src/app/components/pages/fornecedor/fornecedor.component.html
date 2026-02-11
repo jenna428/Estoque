@@ -1,33 +1,20 @@
 <div class="perfil d-inline">
 
-    <div class="d-flex justify-content-between">
-        <div class="d-flex ms-3 mt-3">
-            <button type="button" class="btn btn-light ms-2 d-flex justify-content-center align-items-center" (click)="openCreateFornecedorDialog()">
-                <span class="material-symbols-outlined">
-                    add_box
-                </span>
-            </button>
-        </div>
-        <div class="logout d-flex me-3 mt-3">
-            <button type="button" class="btn btn-light d-flex justify-content-center align-items-center">
-                <span class="material-symbols-outlined">
-                    logout
-                </span>
-            </button>
+    <div class="d-flex">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-end">
+                <div class="d-flex ms-3 mt-3">
+                    <button type="button" *ngIf="isAdmin" class="btn btn-light ms-2 d-flex justify-content-center align-items-center" (click)="openCreateFornecedorDialog()">
+                        <span class="material-symbols-outlined">
+                            add_box
+                        </span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="forn d-flex mt-5 mb-5">
-
-        <img src="" alt="" class="img me-3 rounded-3">
-        <div class="dados">
-            <h1>Nome: </h1>
-            <h2>ID: </h2>
-        </div>
-
-    </div>
-
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center mt-5">
         <table mat-table [dataSource]="dataSource" class="tabforn mat-elevation-z3">
             <ng-container matColumnDef="nome">
                 <th mat-header-cell *matHeaderCellDef class="">

@@ -1,25 +1,24 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity } from "./base.entity";
+import { UserEntity } from "./user.entity";
 
 @Entity('funcionario')
-export class FuncionarioEntity{
-    @PrimaryGeneratedColumn()
-    id?: Number;
-
+export class FuncionarioEntity extends BaseEntity {
     @Column({length: 50, nullable: true})
     nome: String;
 
     @Column({nullable: true})
-    cpf: Number;
+    cpf: number;
 
     @Column({nullable: true})
-    cep: Number;
+    cep: number;
     
     @Column({nullable: true})
-    telefone: Number;
+    telefone: number;
 
     @Column({length: 50, nullable: true})
     email: String;
-
-    @CreateDateColumn({ type: 'datetime' })
-    dataAdmissao?: Date;
+    
+    @OneToOne(type => UserEntity)
+    user?: UserEntity
 }

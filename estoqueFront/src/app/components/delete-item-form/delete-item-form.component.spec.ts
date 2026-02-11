@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarFiltersComponent } from './navbar-filters.component';
+import { DeleteItemFormComponent } from './delete-item-form.component';
 
-describe('NavbarFiltersComponent', () => {
-  let component: NavbarFiltersComponent;
-  let fixture: ComponentFixture<NavbarFiltersComponent>;
+describe('DeleteItemFormComponent', () => {
+  let component: DeleteItemFormComponent;
+  let fixture: ComponentFixture<DeleteItemFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarFiltersComponent ]
+      declarations: [ DeleteItemFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarFiltersComponent);
+    fixture = TestBed.createComponent(DeleteItemFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

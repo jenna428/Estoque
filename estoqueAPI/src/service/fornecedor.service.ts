@@ -13,7 +13,7 @@ export class FornecedorService{
         private readonly fornecedorRepository: FornecedorRepository
     ){}
 
-    async findOneById(fornecedorId: Number): Promise<FornecedorDto> {
+    async findOneById(fornecedorId: number): Promise<FornecedorDto> {
             const fornecedor = await this.fornecedorRepository.findOne({
                 where: {id: fornecedorId}
             })

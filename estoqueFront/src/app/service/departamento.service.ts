@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios';
 import { environment } from 'src/environments/environment';
 import { DepartamentoDto } from '../dto/departamento.dto';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DepartamentoService {
 
-  constructor() { }
+  constructor(
+    private readonly http: HttpService
+  ) { }
   async findAll(): Promise <DepartamentoDto[]> {
-    const resposta = await axios.get(environment.api_url + 'departamento');
+    const resposta = await this.http.get<DepartamentoDto[]>(environment.api_url + 'departamento');
     return resposta.data;
   }
 
   async save(departamentoDto: DepartamentoDto) {
-    await axios.post(environment.api_url + 'departamento', departamentoDto);
+    await this.http.post(environment.api_url + 'departamento', departamentoDto);
   }
 }
 

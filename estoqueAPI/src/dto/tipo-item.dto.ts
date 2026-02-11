@@ -2,9 +2,9 @@ import { DepartamentoDto } from "./departamento.dto";
 import { FornecedorDto } from "./fornecedor.dto";
 
 export interface TipoItemDto {
-    id: Number;
+    id: number;
     departamento: DepartamentoDto;
     nome: String;
-    preco: Number;
+    preco: number;
     fornecedor: FornecedorDto;
 }

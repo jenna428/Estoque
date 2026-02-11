@@ -1,25 +1,20 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity } from "./base.entity";
 
 @Entity('fornecedor')
-export class FornecedorEntity {
-    @PrimaryGeneratedColumn()
-    id?: Number
-    
+export class FornecedorEntity extends BaseEntity {
     @Column({length: 30, nullable: true})
     nome: String;
 
     @Column({nullable: true})
-    cnpj: Number;
+    cnpj: number;
 
     @Column({nullable: true})
-    cep: Number;
+    cep: number;
 
     @Column({nullable: true})
-    telefone: Number;
+    telefone: number;
 
     @Column({length: 50, nullable: true})
     email: String;
-
-    @CreateDateColumn({type: 'datetime'})
-    dataCadastro: Date;
 }

@@ -1,9 +1,8 @@
 export interface FornecedorDto{
-    id: Number;
+    id: number;
     nome: String;
-    cnpj: Number;
-    cep: Number;
-    telefone: Number;
+    cnpj: number;
+    cep: number;
+    telefone: number;
     email: String;
-    dataCadastro: Date;
 }

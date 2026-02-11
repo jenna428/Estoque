@@ -1,4 +1,4 @@
 export interface DepartamentoDto {
-    id: Number;
+    id: number;
     nome: String;
 }

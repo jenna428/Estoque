@@ -1,7 +1,8 @@
 export interface FuncionarioDto{
     nome: String;
-    cpf: Number;
-    cep: Number;
-    telefone: Number;
+    cpf: number;
+    cep: number;
+    telefone: number;
     email: String;
+    password: string;
 }

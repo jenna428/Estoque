@@ -1,17 +1,9 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntity } from "./base.entity";
 
 @Entity('departamento')
-export class DepartamentoEntity {
-    @PrimaryGeneratedColumn()
-    id?: Number;
-
+export class DepartamentoEntity extends BaseEntity {
     @Column({length: 50, nullable: true})
     nome: String;
-
-    @CreateDateColumn({ type: 'datetime' })
-    dataCriado?: Date;
-
-    @UpdateDateColumn({ type: 'datetime' })
-    dataAtualizado?: Date;
 }
 

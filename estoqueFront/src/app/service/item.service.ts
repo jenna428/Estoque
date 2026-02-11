@@ -1,27 +1,42 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios';
 import { environment } from 'src/environments/environment';
 import { ItemDto } from '../dto/item.dto';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  constructor() { }
+  constructor(
+    private readonly http: HttpService
+  ) { }
 
   async save(itemDto: ItemDto) {
-    await axios.post(environment.api_url + 'item', itemDto);
+    await this.http.post(environment.api_url + 'item', itemDto);
+  }
+  async delete(id: number | undefined){
+    await this.http.delete(environment.api_url + 'item/' + id);
   }
 
   async filterSearch(search: String): Promise<ItemDto[]> {
-    const reponse = await axios.get(environment.api_url + 'item/teste/' + search);
-    return reponse.data;
+    // if(search != ''){
+    //   const reponse = await this.http.get<ItemDto[]>(environment.api_url + 'item/teste/' + search);
+    //   return reponse.data;
+    // }
 
+    // return this.findAll();
+
+    if (!search || search.trim() === '') {
+      return this.findAll();
+    }
+
+    const reponse = await this.http.get<ItemDto[]>(environment.api_url + 'item/teste/' + search);
+    return reponse.data;
   }
 
   async findAll(): Promise<ItemDto[]> {
-    const reponse = await axios.get(environment.api_url + 'item');
+    const reponse = await this.http.get<ItemDto[]>(environment.api_url + 'item');
     return reponse.data;
   }
 

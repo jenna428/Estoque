@@ -9,39 +9,43 @@
                 <input type="text" formControlName="nome" matInput>
             </mat-form-field>
         </div>
+
+
+
         <div class="row mb-0">
             <mat-form-field appearance="outline" >
-                <mat-label>Departamento</mat-label>
-                <mat-select formControlName="departamento">
-                    <mat-option *ngFor="let departamento of departamentos" [value]="departamento">{{departamento.nome}}</mat-option>
+                <mat-label>Fornecedor</mat-label>
+                <mat-select formControlName="fornecedor">
+                    <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor">{{fornecedor.nome}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="container">
-            <div class="row mb-0">
 
+        <div class="container">
+            <div class="row">
                 <div class="col">
                     <mat-form-field appearance="outline" >
-                        <mat-label>Fornecedor</mat-label>
-                        <mat-select formControlName="fornecedor">
-                            <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor">{{fornecedor.nome}}</mat-option>
+                        <mat-label>Departamento</mat-label>
+                        <mat-select formControlName="departamento">
+                            <mat-option *ngFor="let departamento of departamentos" [value]="departamento">{{departamento.nome}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
 
                 <div class="col">
-                    <button mat-icon-button (click)="openCreateFornecedorDialog()">Add</button>
+                    <button mat-icon-button type="button" (click)="openCreateDepartamentoDialog()">Add</button>
                 </div>
             </div>
         </div>
+
         <div class="row mb-0">
             <mat-form-field appearance="outline">
                 <mat-label>Preço</mat-label>
                 <input type="text" formControlName="preco" matInput>
             </mat-form-field>
         </div>
-        <div class="row mb-0">
-            <button mat-stroked-button type="submit" [disabled]="form.invalid" [ngStyle]="{'height': '50px', 'font-size': '1.2em'}">Cadastrar</button>
+        <div class="row mb-0 d-flex justify-content-center">
+            <button mat-stroked-button type="submit" [disabled]="form.invalid" [ngStyle]="{'height': '50px', 'width':'200px', 'font-size': '1.2em'}">Cadastrar</button>
         </div>
     </form>
 </div>

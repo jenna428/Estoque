@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/pages/home/home.component';
 import { ItensComponent } from './components/pages/itens/itens.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -15,7 +14,6 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CreateItemFormComponent } from './components/create-item-form/create-item-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NavbarFiltersComponent } from './components/pages/navbar-filters/navbar-filters.component';
 import {MatSelectModule} from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
@@ -28,15 +26,18 @@ import { CreateFuncionarioFormComponent } from './components/create-funcionario-
 import { CreateFornecedorFormComponent } from './components/create-fornecedor-form/create-fornecedor-form.component';
 import { FuncionariosComponent } from './components/pages/funcionarios/funcionarios.component';
 import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { CookieService } from 'ngx-cookie-service';
+import { RolePipe } from './pipes/role.pipe';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { DeleteItemFormComponent } from './components/delete-item-form/delete-item-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
     ItensComponent,
     CreateItemFormComponent,
-    NavbarFiltersComponent,
     CreateDepartamentoFormComponent,
     CreateTipoitemFormComponent,
     ProdutosComponent,
@@ -45,6 +46,8 @@ import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.co
     CreateFornecedorFormComponent,
     FuncionariosComponent,
     FornecedorComponent,
+    RolePipe,
+    DeleteItemFormComponent
   ],
   imports: [
     MatDialogModule,
@@ -59,9 +62,11 @@ import { FornecedorComponent } from './components/pages/fornecedor/fornecedor.co
     MatSelectModule,
     MatOptionModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatSlideToggleModule,
+    MatButtonToggleModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

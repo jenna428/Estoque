@@ -4,7 +4,7 @@ import { TipoItemDto } from "./tipo-item.dto";
 
 
 export interface ItemDto {
-    id: Number;
-    codigoBarra: Number;
+    id: number;
+    codigoBarra: number;
     tipo: TipoItemDto;
 }

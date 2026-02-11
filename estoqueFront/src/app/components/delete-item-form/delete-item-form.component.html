@@ -1,0 +1,9 @@
+<div>
+    <h2>
+        Tem certeza que deseja deletar o Item {{item.tipo.nome}} código {{item.codigoBarra}}?
+    </h2>
+    <div class="d-flex justify-content-between m-3">
+        <button mat-button color="warn" (click)="deletar()">Deletar</button>
+        <button mat-button color="primary" mat-dialog-close>Cancelar</button>
+    </div>
+</div>

@@ -12,7 +12,9 @@ h1{
     padding: 10px;
 }
 
-/*tabela*/
+/*-----------------------------------------------*/
+
+/*table*/
 td{
     font-weight: 500;
 }
@@ -25,7 +27,9 @@ tr:nth-child(even){
     background-color: rgba(127, 255, 212, 0.575);
 }
 
-/*botões*/
+/*-----------------------------------------------*/
+
+/*bottons*/
 button{
     font-size: 1.2em;
 }
@@ -33,7 +37,6 @@ button{
 span{
     font-size: 1.2em;
 }
-
 
 
 

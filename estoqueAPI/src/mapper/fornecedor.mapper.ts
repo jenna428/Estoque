@@ -10,8 +10,7 @@ export class FornecedorMapper{
             cnpj: fornecedorEntity?.cnpj,
             cep: fornecedorEntity?.cep,
             telefone: fornecedorEntity?.telefone,
-            email: fornecedorEntity?.email,
-            dataCadastro: fornecedorEntity?.dataCadastro,
+            email: fornecedorEntity?.email
         }
         return fornecedorDto;
     }
@@ -23,8 +22,7 @@ export class FornecedorMapper{
             cnpj: fornecedorDto?.cnpj,
             cep: fornecedorDto?.cep,
             telefone: fornecedorDto?.telefone,
-            email: fornecedorDto?.email,
-            dataCadastro: fornecedorDto?.dataCadastro
+            email: fornecedorDto?.email
         }
         return fornecedorEntity;
     }
